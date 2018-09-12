@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,8 +12,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.rectiveForm = formBuilder.group({
-      'email': [null],
-      'password': [null],
+      'email': [null,Validators.required],
+      'password': [null,Validators.compose([Validators.required,Validators.minLength(5)])],
       'privacyAndPolicy': [false]
     }
     )
@@ -22,6 +22,9 @@ export class LoginFormComponent implements OnInit {
     console.log(value);
   }
   ngOnInit() {
+    this.rectiveForm.get('password').valueChanges.subscribe(function(value){
+      console.log(value);
+    });
   }
 
 }
