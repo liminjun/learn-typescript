@@ -23,6 +23,7 @@ export class LoginFormComponent implements OnInit {
   }
   ngOnInit() {
     this.rectiveForm.get('password').valueChanges.subscribe(function(value){
+      debugger;
       console.log(value);
     });
   }
