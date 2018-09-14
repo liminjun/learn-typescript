@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -8,7 +10,11 @@ describe('HomePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
+      declarations: [ HomePageComponent ],
+      imports:[
+        FormsModule,
+        NgbModule
+      ]
     })
     .compileComponents();
   }));
